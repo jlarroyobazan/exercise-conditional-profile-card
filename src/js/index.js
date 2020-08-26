@@ -14,7 +14,6 @@ import "../style/index.scss";
         github: "alesanchezr",
         linkedin: null,
         instagram: null,
-
         name: null,
         lastname: null,
         role: null,
@@ -29,18 +28,68 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  let yourName = `Name `;
+  if (variables.name !== null) {
+    yourName = `${variables.name} `;
+  }
+
+  let yourLastname = `Lastname`;
+  if (variables.lastname !== null) {
+    yourLastname = `${variables.lastname} `;
+  }
+
+  let yourRole = "Role";
+  if (variables.role !== null) {
+    yourRole = `${variables.role}`;
+  }
+
+  let yourCity = "City, ";
+  if (variables.city !== null) {
+    yourCity = `${variables.city}, `;
+  }
+
+  let yourCountry = "Country";
+  if (variables.country !== null) {
+    yourCountry = `${variables.country}`;
+  }
+
+  let yourPosition = "position-right";
+  if (variables.socialMediaPosition !== "position-right") {
+    yourPosition = "position-left";
+  }
+
+  let yourTwitter = "Twitter";
+  if (variables.twitter !== null) {
+    yourTwitter = variables.twitter;
+  }
+
+  let yourGithub = "Github";
+  if (variables.github !== null) {
+    yourGithub = variables.github;
+  }
+
+  let yourLinkedin = "Linkedin";
+  if (variables.linkedin !== null) {
+    yourLinkedin = variables.linkedin;
+  }
+
+  let yourInstagram = "Instagram";
+  if (variables.instagram !== null) {
+    yourInstagram = variables.instagram;
+  }
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+          <h1>${yourName} ${yourLastname}</h1>
+          <h2>${yourRole}</h2>
+          <h3>${yourCity} ${yourCountry}</h3>
+          <ul class=${yourPosition}>
+            <li><a href="https://twitter.com/${yourTwitter}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${yourGithub}" target="_blank"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/in/${yourLinkedin}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${yourInstagram}" target="_blank"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
